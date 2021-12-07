@@ -17,12 +17,12 @@
         var url = "https://cj-android-demon.herokuapp.com/json2.php"
         $.get(url,(data, status)=>{
             console.log(data);
-            var jData = JSON.parse(data);
-            console.log(jData.fname);
-            console.log(jData.lname);
-            $("#name").text(jData.fname);
-        
-            });    ;
+            console.log(data[1]);
+            console.log(data[2]);
+            //$("#name").text(jData.fname);
+            });    
+        .fail((xhr, status, err)=>{
+            });
     }
 
     $(() => {
