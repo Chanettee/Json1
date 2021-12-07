@@ -8,25 +8,31 @@
     <script src="js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <button id="btnJSON1">JSON1</button>
-    Name  : <span id="fname"></span> <br>
-    Sname : <span id="lname"></span> <br>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th><th>First Name</th><th>Last Name</th>
+            </tr>
+        </thead>
+        <tbody id="tblStudent">
+        </tbody>
+    </table>
 </body>
 <script>
-    function loadJson(){
-        var url = "https://cj-android-demon.herokuapp.com/json2.php"
-        $.get(url,(data, status)=>{
-            console.log(data);
-            console.log(data[1]);
-            console.log(data[2]);
-            //$("#name").text(jData.fname);
-            });    
-        .fail((xhr, status, err)=>{
-            });
-    }
+function loadJSON(){
+    var url = "https://cj-android-demon.herokuapp.com/json1.php";
 
-    $(() => {
-        $("#btnJSON1").click(loadJSON);
+    $.getJSON(url)
+        .done((data)=>{
+            console.log(data);
+        })
+        .fail((xhr, status, err)=>{
+
         });
+}
+
+$(()=>{
+    loadJSON();
+});
 </script>
 </html>
